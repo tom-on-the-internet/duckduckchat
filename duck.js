@@ -1,5 +1,7 @@
 // click the duck something happens
 
+const synth = window.speechSynthesis;
+
 const duck = document.getElementById("duck");
 
 const thingsDuckCouldSay = [
@@ -13,5 +15,6 @@ const thingsDuckCouldSay = [
 duck.addEventListener("click", function () {
   const index = Math.floor(Math.random() * thingsDuckCouldSay.length);
   const saying = thingsDuckCouldSay[index];
-  alert(saying);
+  const utterance = new SpeechSynthesisUtterance(saying);
+  synth.speak(utterance);
 });
